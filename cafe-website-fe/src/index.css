@@ -1,4 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=MedievalSharp&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Text:ital@0;1&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Tinos:ital,wght@0,400;0,700;1,400;1,700&display=swap');
 @import "tailwindcss";
 
 :root {
@@ -72,4 +74,6 @@ button:focus-visible {
 
 @theme {
   --font-medievalSharp: "MedievalSharp", sans-serif;
+  --font-DMSerif: "DM Serif Text", sans-serif;
+  --font-Tinos: "Tinos", sans-serif;
 }

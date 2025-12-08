@@ -1,6 +1,6 @@
 import { useEffect, useRef } from "react";
 
-export default function useFadeInOnView({animation, reTrigger}) {
+export default function useFadeInOnView({animation, retrigger}) {
   const ref = useRef(null);
   const lastY = useRef(0);
 
@@ -10,8 +10,14 @@ export default function useFadeInOnView({animation, reTrigger}) {
 
     //initial state
     el.classList.add("opacity-0");
-    if (direction === "right") el.classList.add("-translate-x-3");
-    if (direction === "left") el.classList.add("translate-x-3");
+    if (animation == "fadeInRight") {
+        el.classList.add("-translate-x-3");
+        el.dataset.startClass = "-translate-x-3"; 
+    }
+    if (animation == "fadeInLeft") {
+        el.classList.add("translate-x-3");
+        el.dataset.startClass = "translate-x-3"; 
+    }
 
     const observer = new IntersectionObserver(
       ([entry]) => {
@@ -22,16 +28,13 @@ export default function useFadeInOnView({animation, reTrigger}) {
         // ELEMENT ENTERS VIEWPORT
         if (entry.isIntersecting) {
           el.classList.add("opacity-100");
-          el.classList.remove("-translate-x-3", "translate-x-3");
+          if (animation == "fadeInRight"){useFadeinRight(el)}
+          if (animation == "fadeInLeft"){useFadeinLeft(el)}
         }
 
         // ELEMENT LEAVES VIEWPORT (RESET ONLY WHEN LEAVING UPWARDS)
-        if (!entry.isIntersecting && scrollingUp) {
-          // User scrolled back UP past the section → reset for retrigger
-          el.classList.remove("opacity-100");
-
-          if (direction === "right") el.classList.add("-translate-x-3");
-          if (direction === "left") el.classList.add("translate-x-3");
+        if (!entry.isIntersecting && scrollingUp && retrigger == "yes") {
+          useRetrigger(el);
         }
 
         // Save last position
@@ -42,33 +45,23 @@ export default function useFadeInOnView({animation, reTrigger}) {
 
     observer.observe(el);
     return () => observer.disconnect();
-  }, [direction]);
+  }, []);
 
   return ref;
 }
 
-function useFadeinRight (){
-  const ref = useRef(null);
+function useFadeinRight(el){
+  el.classList.remove("-translate-x-3");
+}
 
-  useEffect(() => {
-    const el = ref.current;
-    if (!el) return;
+function useFadeinLeft(el){
+  el.classList.remove("translate-x-3");
+}
 
-    //initial state
-    el.classList.add("opacity-0 -translate-x-3");
-
-    const observer = new IntersectionObserver(([entry]) => {
-      // ELEMENT ENTERS VIEWPORT
-      if (entry.isIntersecting) {
-        el.classList.add("opacity-100");
-        el.classList.remove("-translate-x-3");
-      }
-    },
-    { threshold: 0.2 });
-
-    observer.observe(el);
-    return () => observer.disconnect();
-  }, [direction]);
-
-  return ref;
+function useRetrigger(el){
+  const startClass = el.dataset.startClass;
+  el.classList.remove("opacity-100");
+  if (startClass) {
+    el.classList.add(startClass);
+  }
 }

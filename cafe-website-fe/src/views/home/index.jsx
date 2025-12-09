@@ -1,6 +1,6 @@
 import useFadeInOnView from "../../hooks/useFadeInOnView";
 import Specials from "../../components/specials";
-import ImageFadeCarousel from "../../components/imageFadeCarousel";
+import SwiperCarousel from "../../components/swiper";
 
 function HomeView(){
   const interior1 = useFadeInOnView({animation:'fadeInRight'});
@@ -11,21 +11,12 @@ function HomeView(){
   <div className="bg-[#FFF8E1] w-[100vw]">
     <div id="page1" className="flex flex-col min-h-[calc(100svh)]">
       <div className="flex flex-col flex-1">
-        <div id="Image1" 
-          className="
-            w-full 
-            flex-1
-            bg-center bg-cover
-            bg-[linear-gradient(360deg,rgba(255,248,225,1)_0%,rgba(0,0,0,0)_30%),url('/img/exterior.png')]
-          "
-        >
-        </div>
+        <SwiperCarousel/>
       </div>
       <div id="title" className="flex flex-col overflow-hidden h-[40vh] items-center w-full !text-black pt-10">
         <div className="flex flex-row">
           <img src='./img/logo.png' className="w-[72px] h-[72px]"/>
           <span className="font-DMSerif text-7xl">Ardell's</span>
-          <ImageFadeCarousel/>
         </div>
         <span className="font-Tinos text-2xl">Tradition, Brewed. Innovation, Poured.</span>
       </div>

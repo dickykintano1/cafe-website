@@ -32,7 +32,7 @@ export default function Navbar() {
     <>
       <div ref={navRef}
         className="
-        fixed top-0 z-98 w-[100svw] h-[60px] 
+        fixed top-0 z-98 w-[100svw] h-15
         bg-[#FFE0B2] text-white 
         flex items-center
         transition-all duration-300

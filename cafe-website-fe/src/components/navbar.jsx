@@ -1,7 +1,8 @@
 import { useEffect, useRef, useState } from "react";
+import MenuButton from "./menuButton";
 
 export default function Navbar() {
-  const [open, setOpen] = useState(false);
+  const [sideBarOpen, setSideBarOpen] = useState(false);
   const navRef = useRef(null);
 
   useEffect(() => {
@@ -32,45 +33,38 @@ export default function Navbar() {
     <>
       <div ref={navRef}
         className="
-        fixed top-0 z-98 w-[100svw] h-15
-        bg-[#FFE0B2] text-white 
-        flex items-center
+        fixed top-0 z-97 w-[100svw] h-15 bg-[#FFE0B2]
         transition-all duration-300
         "
       >
-        <button
-          onClick={() => setOpen((o) => !o)}
-          className="!bg-transparent "
-        >
-          <img src="/img/menu.png" className="w-8 h-8" alt="menu" />
-        </button>
+      </div>
+      <div className="fixed top-0 ml-4 mt-4 z-99">
+        <MenuButton sideBarOpen={sideBarOpen} onClick={() => setSideBarOpen((o) => !o)}/>
       </div>
 
       <div>
         {/* Overlay */}
         <div
           className={`
-            fixed inset-0 bg-black/50 transition-opacity duration-300 z-99
-            ${open ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"}
+            fixed inset-0 bg-black/50 transition-opacity duration-300 z-98
+            ${sideBarOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"}
           `}
-          onClick={() => setOpen(false)}
+          onClick={() => setSideBarOpen(false)}
         />
 
         {/* Sidebar */}
         <div
           className={`
-            fixed left-0 top-0 h-screen w-[40vw] bg-[#795548] shadow-xl z-99
+            fixed left-0 top-0 h-screen w-[40vw] bg-[#795548] shadow-xl z-98
             transform transition-transform duration-300
-            ${open ? "translate-x-0" : "-translate-x-full"}
+            ${sideBarOpen ? "translate-x-0" : "-translate-x-full"}
           `}
         >
-          <div className="p-4 ">
-            <h2 className="text-xl font-bold">Sidebar Panel</h2>
-            <p className="mt-4">Reserve</p>
-            
-            <p className="mt-4">Location</p>
-
-            <p className="mt-4">Contact</p>
+          <div className="pl-4 flex flex-col justify-center items-center">
+            <p className="pt-2 text-4xl font-bold font-DMSerif">Ardell's</p>
+            <p className="mt-8 text-3xl self-start">Reserve</p>
+            <p className="mt-4 text-3xl self-start">Location</p>
+            <p className="mt-4 text-3xl self-start">Contact</p>
           </div>
         </div>
       </div>

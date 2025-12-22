@@ -1,6 +1,9 @@
+import {motion} from 'framer-motion';
+
 import useFadeInOnView from "../../hooks/useFadeInOnView";
 import Specials from "../../components/specials";
 import SwiperCarousel from "../../components/swiper";
+import RevealText from '../../components/revealText';
 
 function HomeView() {
   const interior1 = useFadeInOnView({ animation: 'fadeInRight' });
@@ -28,9 +31,8 @@ function HomeView() {
 
       {/* --- Section Title --- */}
       <div className="w-full text-center my-20 flex flex-col justify-center items-center">
-        <h2 className="font-DMSerif text-5xl max-w-80 mb-4 text-amber-900">
-            A Feeling, Not Just a Place
-        </h2>
+        <RevealText className={''} text={'A Feeling, Not'}/>
+        <RevealText className={'mb-4'} text={'Just a Place'}/>
         <p className="font-Tinos text-xl max-w-100 mx-auto text-gray-700">
             Every corner of Ardell's is designed to be a moment of quiet comfort and simple elegance.
         </p>

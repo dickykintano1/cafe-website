@@ -5,14 +5,13 @@ import 'swiper/css/autoplay';
 import 'swiper/css/effect-fade';
 
 
-
-export default function SwiperCarousel() {
+export default function SwiperCarousel({images = [], effect, className, gradient}) {
   const gradientStyle = `linear-gradient(360deg, rgba(255,248,225,1) 5%, rgba(0,0,0,0) 30%)`;
 
   return (
     <Swiper
       modules={[Autoplay, EffectFade]}
-      effect={'fade'}
+      effect={effect}
       allowTouchMove={false}
       speed={2000}
       autoplay={{
@@ -25,12 +24,20 @@ export default function SwiperCarousel() {
 
       onSlideChange={() => console.log('slide change')}
       onSwiper={(swiper) => console.log(swiper)}
-      className='w-full h-[60svh] mt-15'
+      className={`${className}`}
       style={{}}
     >
-      <SwiperSlide className='bg-cover bg-center bg-no-repeat' style={{ backgroundImage: `${gradientStyle}, url("/img/barista.png"` }}></SwiperSlide>
-      <SwiperSlide className='bg-cover bg-center bg-no-repeat' style={{ backgroundImage: `${gradientStyle}, url("/img/interior3.png"` }}></SwiperSlide>
-      <SwiperSlide className='bg-cover bg-center bg-no-repeat' style={{ backgroundImage: `${gradientStyle}, url("/img/interior4.png"` }}></SwiperSlide>
+      {images.map((src, index) => (
+        <SwiperSlide 
+          key={index} 
+          className="bg-cover bg-center bg-no-repeat"
+          style={{ 
+            backgroundImage: gradient 
+              ? `${gradientStyle}, url("${src}")` 
+              : `url("${src}")` 
+          }}
+        />
+      ))}
     </Swiper>
   )
 }

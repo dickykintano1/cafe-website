@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from "react";
+import {Link} from "react-router-dom"
 import MenuButton from "./menuButton";
 
 export default function Navbar() {
@@ -55,16 +56,18 @@ export default function Navbar() {
         {/* Sidebar */}
         <div
           className={`
-            fixed left-0 top-0 h-screen w-[40vw] bg-[#795548] shadow-xl z-98
+            fixed left-0 top-0 h-screen max-w-[50svw] bg-[#795548] shadow-xl z-98
             transform transition-transform duration-300
             ${sideBarOpen ? "translate-x-0" : "-translate-x-full"}
           `}
         >
           <div className="pl-4 flex flex-col justify-center items-center">
-            <p className="pt-2 text-4xl font-bold font-DMSerif">Ardell's</p>
-            <p className="mt-8 text-3xl self-start">Reserve</p>
-            <p className="mt-4 text-3xl self-start">Location</p>
-            <p className="mt-4 text-3xl self-start">Contact</p>
+            <p className="pt-2 ml-24 mb-4 w-full text-4xl font-bold font-DMSerif">Ardell's</p>
+            
+            <Link to="/" className="mt-4 text-2xl self-start">Home</Link>
+            <p className="mt-4 text-2xl self-start">Reserve</p>
+            <p className="mt-4 text-2xl self-start">Location</p>
+            <p className="mt-4 text-2xl self-start">Contact</p>
           </div>
         </div>
       </div>

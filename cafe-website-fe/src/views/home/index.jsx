@@ -4,6 +4,8 @@ import useFadeInOnView from "../../hooks/useFadeInOnView";
 import Specials from "../../components/specials";
 import SwiperCarousel from "../../components/swiper";
 import RevealText from '../../components/revealText';
+import MenuGrid from '../../components/menuGrid';
+import VisitUs from '../../components/visitUs';
 
 function HomeView() {
   const interior1 = useFadeInOnView({ animation: 'fadeInRight' });
@@ -11,10 +13,12 @@ function HomeView() {
   const interior3 = useFadeInOnView({ animation: 'fadeInRight' });
 
   return (
-    <div className="bg-[#FFF8E1] w-[100vw]">
+    <main className="bg-[#FFF8E1] w-[100vw]">
       <div id="page1" className="flex flex-col min-h-[100svh] bg-[#FFE0B2]">
         <div className="">
-          <SwiperCarousel />
+          <SwiperCarousel effect="fade" className='h-[60svh] mt-15' gradient
+            images={["/img/barista.png", "/img/interior2.png", "/img/interior3.png"]}
+          />
         </div>
         <div id="title"
           className="
@@ -30,9 +34,8 @@ function HomeView() {
       </div>
 
       {/* --- Section Title --- */}
-      <div className="w-full text-center my-20 flex flex-col justify-center items-center">
-        <RevealText className={''} text={'A Feeling, Not'}/>
-        <RevealText className={'mb-4'} text={'Just a Place'}/>
+      <div className="w-full h-[40svh] text-center my-20 flex flex-col justify-center items-center">
+        <RevealText containerClass={'mb-10'} textClass={'font-DMSerif text-5xl text-amber-900'} phrases={['A feeling, not', 'just a place']}/>
         <p className="font-Tinos text-xl max-w-100 mx-auto text-gray-700">
             Every corner of Ardell's is designed to be a moment of quiet comfort and simple elegance.
         </p>
@@ -68,10 +71,30 @@ function HomeView() {
         </div>
       </div>
 
-      {/* <div id="page3" className="!text-black my-10 mx-5">
-        <Specials />
-      </div> */}
-    </div>
+      {/* --- Section Title 2--- */}
+      <div className="w-full h-[40svh] text-center my-20 flex flex-col justify-center items-center">
+        <RevealText containerClass={'mb-10'} textClass={'font-DMSerif text-5xl text-amber-900'} phrases={['Savour the', 'full experience']}/>
+        <p className="font-Tinos text-xl max-w-100 mx-auto text-gray-700">
+            Get the most from the best ingredients handled with perfected crafts. We see our barista as craftsmen whose creations could be savored by anyone. 
+        </p>
+      </div>
+
+      <div className='px-6'>
+        <SwiperCarousel effect="fade" className='h-[25svh]'
+          images={["/img/barista2.png", "/img/coffee5.png", "/img/cake.png"]}
+        />
+      </div>
+
+      <MenuGrid/>
+      <VisitUs/>
+
+      <div className='relative flex h-[100svw] justify-center items-center'>
+        <img src="/img/exterior.png" className="absolute brightness-75"></img>
+        <a href="/reserve" className='text-4xl absolute text-white text-center font-DMSerif underline '>Make a Reservation</a>
+      </div>
+      
+
+    </main>
   )
 }
 

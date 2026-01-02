@@ -1,16 +1,45 @@
-import {motion} from "framer-motion";
+import { motion } from "framer-motion";
 
-export default function RevealText({className, text}){
-  return(
-    <div className={`block overflow-hidden ${className}`}>
-      <motion.p className="font-DMSerif text-5xl max-w-80 text-amber-900 leading-tight"
-        initial={{ clipPath: "inset(100% 0% 0% 0%)" }} // Completely hidden from the bottom
-        whileInView={{ clipPath: "inset(0% 0% 0% 0%)" }} // Revealed
-        transition={{ duration: 1, ease: [0.45, 0, 0.55, 1] }} // Smooth "reveal" easing
-        viewport={{ once: true }}
-      >
-        {text}
-      </motion.p>
-    </div>
-  )
+export default function RevealText({ phrases = [], containerClass, textClass }) {
+  // Parent variants to coordinate children
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.5, // The 0.5s delay you requested
+      },
+    },
+  };
+
+  // Child variants for the specific "clipPath" reveal
+  const itemVariants = {
+    hidden: { clipPath: "inset(0% 0% 100% 0%)", y: 20 },
+    visible: {
+      clipPath: "inset(0% 0% 0% 0%)",
+      y: 0,
+      transition: { 
+        duration: 1, 
+        ease: [0.45, 0, 0.55, 1] 
+      },
+    },
+  };
+
+  return (
+    <motion.div
+      className={containerClass}
+      variants={containerVariants}
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, amount: 0.3 }} // Triggers when 30% of container is visible
+    >
+      {phrases.map((phrase, index) => (
+        <div key={index} className="overflow-hidden">
+          <motion.p className={`leading-tight ${textClass}`} variants={itemVariants}>
+            {phrase}
+          </motion.p>
+        </div>
+      ))}
+    </motion.div>
+  );
 }

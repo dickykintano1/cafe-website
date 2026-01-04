@@ -22,8 +22,8 @@ export default function SwiperCarousel({images = [], effect, className, gradient
       spaceBetween={0}
       slidesPerView={1}
 
-      onSlideChange={() => console.log('slide change')}
-      onSwiper={(swiper) => console.log(swiper)}
+      // onSlideChange={() => console.log('slide change')}
+      // onSwiper={(swiper) => console.log(swiper)}
       className={`${className}`}
       style={{}}
     >

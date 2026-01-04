@@ -14,10 +14,8 @@ export default function Navbar() {
 
       if (curr > lastScroll && curr > 50) {
         navRef.current.classList.add("-translate-y-100");
-        console.log('nav hidden')
       } else {
         navRef.current.classList.remove("-translate-y-100");
-        console.log('nav show')
       }
 
       lastScroll = curr;

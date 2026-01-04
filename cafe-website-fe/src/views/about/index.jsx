@@ -7,6 +7,7 @@ export default function AboutView() {
   return (
     <section ref={sectionRef} className="inline-block bg-[#FFF8E1] w-[100vw] max-w-[100vw] h-[200vh] px-5 pt-15 pb-25">
       <ScrollIndicator targetRef={sectionRef}/>
+      <div className="h-100 w-full -mt-[80svh] bg-black md:bg-red-200 lg:bg-blue-200 xl:bg-yellow-200 2xl:bg-green-200"></div>
 
       
     </section >

@@ -2,7 +2,27 @@ import {motion} from "framer-motion"
 import { Link } from "react-router";
 
 const MenuGrid = () => {
-  const textStyle = 'font-DMSerif text-6xl md:text-8xl tracking-[0.001rem] cursor-pointer'
+  // const textStyle = 'font-DMSerif text-5xl md:text-8xl tracking-[0.001rem] cursor-pointer hover:underline' 
+  const textStyle = `
+  font-DMSerif text-5xl md:text-8xl
+    inline-block
+    relative 
+
+    after:absolute 
+    after:bottom-0 
+    after:left-0 
+    after:h-[4px] 
+    after:w-full 
+    after:scale-x-0 
+    after:bg-current 
+    after:transition-transform 
+    after:duration-500 
+    after:ease-in-out 
+    after:origin-left 
+
+    hover:after:scale-x-100 
+    hover:after:origin-left
+`;
   // Parent variants to coordinate children
   const containerVariants = {
     hidden: { opacity: 0 },

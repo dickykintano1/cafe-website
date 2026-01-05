@@ -4,7 +4,7 @@ const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="relative bg-[#4a372d] text-[#cccccc] pt-15 px-6">
+    <footer className="relative bg-[#4a372d] text-[#cccccc] pt-15 px-6 max-h-[50svh]">
       <div className="max-w-6xl mx-auto">
         
         {/* Top Section: Navigation and Reserve */}

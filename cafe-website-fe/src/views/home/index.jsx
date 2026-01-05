@@ -6,6 +6,8 @@ import SwiperCarousel from "../../components/swiper";
 import RevealText from '../../components/revealText';
 import MenuGrid from '../../components/menuGrid';
 import VisitUs from '../../components/visitUs';
+import { Link } from 'react-router';
+import ReservationWindow from '../../components/reservationWindow';
 
 function HomeView() {
   const interior1 = useFadeInOnView({ animation: 'fadeInRight' });
@@ -13,7 +15,8 @@ function HomeView() {
   const interior3 = useFadeInOnView({ animation: 'fadeInRight' });
 
   return (
-    <main className="bg-[#FFF8E1] w-[100vw]">
+    <>
+      <main className="bg-[#FFF8E1] w-[100vw]">
       <div id="page1" className="flex flex-col min-h-[100svh] bg-[#FFE0B2]">
         <div className="">
           <SwiperCarousel effect="fade" className='h-[60svh] mt-15' gradient
@@ -87,14 +90,10 @@ function HomeView() {
 
       <MenuGrid/>
       <VisitUs/>
-
-      <div className='relative flex h-[100svw] justify-center items-center'>
-        <img src="/img/exterior.png" className="absolute brightness-75"></img>
-        <a href="/reserve" className='text-4xl absolute text-white text-center font-DMSerif underline '>Make a Reservation</a>
-      </div>
-      
-
     </main>
+    <ReservationWindow/>
+    </>
+    
   )
 }
 

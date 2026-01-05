@@ -1,16 +1,21 @@
 import { motion, useScroll, useSpring, useTransform } from "framer-motion";
 import { useRef } from "react";
 
+import ReservationWindow from "../../components/reservationWindow";
+
 export default function AboutView() {
   const sectionRef = useRef(null);
 
   return (
-    <section ref={sectionRef} className="inline-block bg-[#FFF8E1] w-[100vw] max-w-[100vw] h-[200vh] px-5 pt-15 pb-25">
-      <ScrollIndicator targetRef={sectionRef}/>
-      <div className="h-100 w-full -mt-[80svh] bg-black md:bg-red-200 lg:bg-blue-200 xl:bg-yellow-200 2xl:bg-green-200"></div>
-
-      
-    </section >
+    <>
+      <section className="bg-[#FFF8E1] w-[100vw] max-w-[100vw] px-5">
+        <div ref={sectionRef} className="relative h-[400svh]">
+          <ScrollIndicator targetRef={sectionRef}/>
+          <div className="-mt-[100svh] pt-15 text-black">daa</div>
+        </div>
+      </section >
+    <ReservationWindow/>
+    </>
   );
 }
 
@@ -26,26 +31,20 @@ function ScrollIndicator({targetRef}){
     restDelta: 0.001
   });
 
-  // This maps the scroll to a movement from -100% to 0%
-  // This keeps the "bottom" of the container aligned with the scroll progress
-  const yProgress = useTransform(scaleY, [0, 1], ["0%", "80svh"]);
+  const trackHeight = "35svh";
+
+  const yProgress = useTransform(scaleY, [0, 1], ["0", trackHeight]);
 
   return (
-    <div className="sticky top-20 ml-[98%] w-1 h-[80svh] flex justify-center">
+    <div className="sticky ml-[100%] top-0 right-0 w-1 flex justify-center pr-5 h-[100svh]">
       {/* Track */}
-      <div className="absolute top-0 w-[3px] h-full bg-black/50 z-40" />
+      <div className={`absolute top-20 w-[2px] h-[${trackHeight}] bg-black/50 z-40`} />
 
       {/* Ball */}
       <motion.div
-        className="absolute w-5 h-5 bg-black rounded-full shadow-lg z-50"
-        style={{
-          y: yProgress,
-          maskImage:
-            "radial-gradient(circle 5px at center, transparent 95%, black 100%)",
-          WebkitMaskImage:
-            "radial-gradient(circle 5px at center, transparent 95%, black 100%)",
-        }}
-      />
+        className="absolute top-20 h-8 z-50 bg-[#FFF8E1] flex items-center justify-center"
+        style={{y: (yProgress)}}
+      ><div className=" w-2 h-2 bg-black rotate-45" /></motion.div>
     </div>
   );
 }

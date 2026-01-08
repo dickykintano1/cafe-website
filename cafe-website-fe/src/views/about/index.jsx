@@ -1,7 +1,8 @@
 import { motion, useScroll, useSpring, useTransform } from "framer-motion";
-import { useRef } from "react";
+import { useRef, useState, useEffect } from "react";
 
 import ReservationWindow from "../../components/reservationWindow";
+import ScrollIndicator from "../../components/scrollIndicator";
 
 export default function AboutView() {
   const sectionRef = useRef(null);
@@ -9,42 +10,18 @@ export default function AboutView() {
   return (
     <>
       <section className="bg-[#FFF8E1] w-[100vw] max-w-[100vw] px-5">
-        <div ref={sectionRef} className="relative h-[400svh]">
+        <div ref={sectionRef} className="relative">
           <ScrollIndicator targetRef={sectionRef}/>
-          <div className="-mt-[100svh] pt-15 text-black">daa</div>
+          <div className="-mt-[100svh] text-black pr-20 pb-30">
+            <div className="mt-30 text-5xl font-bold font-DMSerif">About</div>
+            <div className="mt-15 text-base">It began with a singular obsession: the perfect cup of black coffee. To me, coffee was never just a morning ritual; it was a pursuit of clarity, acidity, and origin. For years, the daily grind was a solitary act of precision—dialing in roasts and perfecting extraction methods to satisfy a personal palate that demanded nothing less than excellence. In the quiet of those early mornings, the foundation of our craft was laid in the steam and the scent of freshly ground beans.</div>
+            <div className="mt-10"><img src="/img/coffeeTexture.png" className="h-45 w-full object-cover"></img></div>
+            <div className="mt-10 text-base">However, the true transformation occurred when the craft met the community. As the founder began brewing for friends and fellow enthusiasts, a new realization took hold: the technical reward of a perfect brew pale in comparison to the joy of sharing it. The act of service turned a solitary passion into a collective experience. We discovered that coffee tastes better when it serves as a bridge between people, shifting our focus from the science of the bean to the soul of the guest.</div>
+            <div className="mt-15 text-base">Today, this cafe is the realization of that shared joy. While our heart remains rooted in specialty black coffee, we have expanded our table to offer a complete sensory experience. From artisanal cakes and seasonal kitchen offerings to curated souvenirs that allow you to take a piece of our world home, every detail is handled with the same precision as our pour-overs. We no longer just brew for ourselves; we brew to create a space where quality and hospitality meet.</div>
+          </div>
         </div>
       </section >
     <ReservationWindow/>
     </>
-  );
-}
-
-function ScrollIndicator({targetRef}){
-  const { scrollYProgress } = useScroll({
-    target: targetRef,
-    offset: ["start start", "end end"],
-  });
-  
-  const scaleY = useSpring(scrollYProgress, {
-    stiffness: 100,
-    damping: 30,
-    restDelta: 0.001
-  });
-
-  const trackHeight = "35svh";
-
-  const yProgress = useTransform(scaleY, [0, 1], ["0", trackHeight]);
-
-  return (
-    <div className="sticky ml-[100%] top-0 right-0 w-1 flex justify-center pr-5 h-[100svh]">
-      {/* Track */}
-      <div className={`absolute top-20 w-[2px] h-[${trackHeight}] bg-black/50 z-40`} />
-
-      {/* Ball */}
-      <motion.div
-        className="absolute top-20 h-8 z-50 bg-[#FFF8E1] flex items-center justify-center"
-        style={{y: (yProgress)}}
-      ><div className=" w-2 h-2 bg-black rotate-45" /></motion.div>
-    </div>
   );
 }

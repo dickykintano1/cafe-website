@@ -50,7 +50,6 @@ function HomeView() {
             className="
           w-full h-50
           bg-[url(/img/interior1.png)] bg-cover bg-center
-          transition-all duration-2000 ease-out
           "
           />
         </div>
@@ -59,7 +58,7 @@ function HomeView() {
             className="
           w-full h-80 mt-40
           bg-[url(/img/interior2.png)] bg-cover bg-center
-          translate-y-5 transition-all duration-2000 ease-out
+          translate-y-5
           "
           />
         </div>
@@ -68,7 +67,6 @@ function HomeView() {
             className="
           w-full h-70 
           bg-[url(/img/interior3.png)] bg-cover bg-center
-          transition-all duration-2000 ease-out
           "
           />
         </div>

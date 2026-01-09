@@ -3,6 +3,7 @@ import { useEffect, useRef } from "react";
 export default function useFadeInOnView({animation, retrigger}) {
   const ref = useRef(null);
   const lastY = useRef(0);
+  const hasAnimated = useRef(false);
 
   useEffect(() => {
     const el = ref.current;
@@ -10,13 +11,24 @@ export default function useFadeInOnView({animation, retrigger}) {
 
     //initial state
     el.classList.add("opacity-0");
-    if (animation == "fadeInRight") {
-        el.classList.add("-translate-x-3");
-        el.dataset.startClass = "-translate-x-3"; 
+    const startClasses = {
+      fadeInRight: ["-translate-x-3"],
+      fadeInLeft: ["translate-x-3"],
+      fadeInRightDrop: ["-translate-x-24", "scale-110", "shadow-xl"],
+      fadeInLeftDrop: ["translate-x-24"],
+    };
+    const startClass = startClasses[animation];
+    if (startClass) {
+      el.classList.add(...startClass);
+      el.dataset.startClass = JSON.stringify(startClass);
     }
-    if (animation == "fadeInLeft") {
-        el.classList.add("translate-x-3");
-        el.dataset.startClass = "translate-x-3"; 
+
+    //check and trigger on view without scroll
+    const rect = el.getBoundingClientRect();
+    const inView = rect.top < window.innerHeight * 0.8 && rect.bottom > 0;
+    if (inView) {
+      animateIn(el, animation);
+      hasAnimated.current = true;
     }
 
     const observer = new IntersectionObserver(
@@ -27,20 +39,24 @@ export default function useFadeInOnView({animation, retrigger}) {
 
         // ELEMENT ENTERS VIEWPORT
         if (entry.isIntersecting) {
-          el.classList.add("opacity-100");
-          if (animation == "fadeInRight"){useFadeinRight(el)}
-          if (animation == "fadeInLeft"){useFadeinLeft(el)}
+          animateIn(el, animation);
+          hasAnimated.current = true;
         }
 
         // ELEMENT LEAVES VIEWPORT (RESET ONLY WHEN LEAVING UPWARDS)
-        if (!entry.isIntersecting && scrollingUp && retrigger == "yes") {
-          useRetrigger(el);
+        if (
+          !entry.isIntersecting &&
+          scrollingUp &&
+          retrigger === "yes"
+        ) {
+          reset(el);
+          hasAnimated.current = false;
         }
 
         // Save last position
         lastY.current = currentY;
       },
-      { threshold: 0.2 }
+      { threshold: 0.2, }
     );
 
     observer.observe(el);
@@ -50,18 +66,13 @@ export default function useFadeInOnView({animation, retrigger}) {
   return ref;
 }
 
-function useFadeinRight(el){
-  el.classList.remove("-translate-x-3");
-}
-
-function useFadeinLeft(el){
-  el.classList.remove("translate-x-3");
-}
-
-function useRetrigger(el){
-  const startClass = el.dataset.startClass;
-  el.classList.remove("opacity-100");
-  if (startClass) {
-    el.classList.add(startClass);
-  }
+function animateIn(el){
+  const startClasses = JSON.parse(el.dataset.startClass || "[]");
+  if (startClasses[0]){el.classList.remove(startClasses[0])}
+  if (startClasses[1]){
+    setTimeout(() => {
+      el.classList.remove(...startClasses);
+    }, 400);
+  };
+  el.classList.add("opacity-100", "shadow-md", "transform", "transition-all", "duration-2000", "ease-out");
 }

@@ -2,7 +2,7 @@ export default function ReservationView(){
   return(
     <section className="bg-[#FFF8E1] w-[100vw] max-w-[100vw] pt-15 px-5">
       <div className="text-black pr-15 pb-30">
-        <div className="mt-15 text-5xl font-bold font-DMSerif">Reservation</div>
+        <div className="pl-5 mt-15 text-5xl font-bold font-DMSerif">Reservation</div>
         <div className="mt-15 text-xl">
           Reservations available for groups of 4+ <br/>
           <br/>

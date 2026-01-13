@@ -12,10 +12,10 @@ const Footer = () => {
           <ul className="space-y-2">
             <li><a href="/" className="hover:opacity-70 transition-opacity">Home</a></li>
             <li><a href="/about" className="hover:opacity-70 transition-opacity">About</a></li>
-            <li><a href="/merchandise" className="hover:opacity-70 transition-opacity">Merchandise</a></li>
+            <li><a href="/accessories" className="hover:opacity-70 transition-opacity">Accessories</a></li>
           </ul>
           <div className="text-right flex flex-col gap-2">
-            <a href="/reserve" className="md:text-2xl hover:opacity-70 transition-opacity">
+            <a href="/reservation" className="md:text-2xl hover:opacity-70 transition-opacity">
               Reserve
             </a>
             <div className='h-8'></div>

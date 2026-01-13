@@ -2,7 +2,8 @@ import { motion, useScroll, useSpring, useTransform } from "framer-motion";
 import { useRef, useState, useEffect } from "react";
 
 import ScrollIndicator from "../../components/scrollIndicator";
-import ImagePhotoStyle from "../../components/imgPhotoStyle";
+import MenuItems from "../../components/menuItems";
+import BottomNavigation from "../../components/bottomNavigator";
 
 export default function CoffeeView() {
   const menuItems = [
@@ -25,7 +26,8 @@ export default function CoffeeView() {
       animation:"fadeInRightDrop", 
       imgUrl:"/img/espresso.png", 
       title:"Espresso", 
-      description:"We pull our espresso with consistency and care, aiming for a cup that is rich, clean, and gently sweet rather than sharp. It’s a small drink made deliberately, whether you’re stopping in briefly or staying a while."
+      description:"We pull our espresso with consistency and care, aiming for a cup that is rich, clean, and gently sweet rather than sharp. It’s a small drink made deliberately, whether you’re stopping in briefly or staying a while.",
+      variant:"square"
     },
   ];
       
@@ -35,8 +37,8 @@ export default function CoffeeView() {
     <section className="bg-[#FFF8E1] w-[100vw] max-w-[100vw] px-5">
       <div ref={sectionRef} className="relative">
         <ScrollIndicator targetRef={sectionRef}/>
-        <div className="-mt-[100svh] text-black pr-20 pb-30">
-          <div className="mt-30 text-5xl font-bold font-DMSerif">Coffee</div>
+        <div className="-mt-[100svh] text-black pr-20">
+          <div className="pl-5 mt-30 text-5xl font-bold font-DMSerif">Coffee</div>
           <div className="mt-15 text-3xl">Beans Selection</div>
           <div className="mt-5 text-base">
             <p>Colombia Washed — soft, balanced, sweet</p>
@@ -44,28 +46,14 @@ export default function CoffeeView() {
             <p>Ethiopia Natural — bright, expressive, fruity</p>
           </div>
           <div className="mt-15 text-sm italic">We stand behind these beans, no matter how you drink them.</div>
-          <div className="mt-10 border-t border-1"></div>
-          <MenuItem menuItems={menuItems}/>
+          <div className="mt-10 border-t border-1 -mr-10"></div>
+          <MenuItems menuItems={menuItems}/>
+          <div className="mt-15 border-t border-1 -mr-20"></div>
+          <div className="mt-30 text-sm italic text-center -mr-20">Good beans, careful brewing, no shortcuts.</div>
+          <div className="mt-30 border-t border-1 -mr-20"></div>
         </div>
       </div>
+      <BottomNavigation rightButton={"pastry"}/>
     </section>
   );
-}
-
-function MenuItem({menuItems}){
-  return(
-    <>
-      {menuItems.map(item => (
-        <>
-          <div className="mt-20 text-base">
-            <ImagePhotoStyle imgUrl={item.imgUrl} animation={item.animation}/>
-          </div>
-          <div className="mt-20 text-3xl">{item.title}</div>
-          <div className="mt-5 text-base">{item.description}</div>
-          <div className="mt-15 border-t border-1"></div>
-        </>
-      ))}
-      
-    </>
-  )
 }

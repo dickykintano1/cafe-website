@@ -13,7 +13,7 @@ export default function AboutView() {
         <div ref={sectionRef} className="relative">
           <ScrollIndicator targetRef={sectionRef}/>
           <div className="-mt-[100svh] text-black pr-20 pb-30">
-            <div className="mt-30 text-5xl font-bold font-DMSerif">About</div>
+            <div className="pl-5 mt-30 text-5xl font-bold font-DMSerif">About</div>
             <div className="mt-15 text-base">It began with a singular obsession: the perfect cup of black coffee. To me, coffee was never just a morning ritual; it was a pursuit of clarity, acidity, and origin. For years, the daily grind was a solitary act of precision—dialing in roasts and perfecting extraction methods to satisfy a personal palate that demanded nothing less than excellence. In the quiet of those early mornings, the foundation of our craft was laid in the steam and the scent of freshly ground beans.</div>
             <div className="mt-10"><img src="/img/coffeeTexture.png" className="h-45 w-full object-cover"></img></div>
             <div className="mt-10 text-base">However, the true transformation occurred when the craft met the community. As the founder began brewing for friends and fellow enthusiasts, a new realization took hold: the technical reward of a perfect brew pale in comparison to the joy of sharing it. The act of service turned a solitary passion into a collective experience. We discovered that coffee tastes better when it serves as a bridge between people, shifting our focus from the science of the bean to the soul of the guest.</div>

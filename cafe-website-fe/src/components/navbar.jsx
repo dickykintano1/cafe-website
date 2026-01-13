@@ -63,9 +63,9 @@ export default function Navbar() {
             <p className="pt-2 ml-24 mb-4 w-full text-4xl font-bold font-DMSerif">Ardell's</p>
             
             <Link to="/" className="mt-4 text-2xl self-start">Home</Link>
-            <p className="mt-4 text-2xl self-start">Reserve</p>
-            <p className="mt-4 text-2xl self-start">Location</p>
-            <p className="mt-4 text-2xl self-start">Contact</p>
+            <Link to="/about" className="mt-4 text-2xl self-start">About</Link>
+            <Link to="/accessories" className="mt-4 text-2xl self-start">Accessories</Link>
+            <Link to="/reservation" className="mt-4 text-2xl self-start">Reserve</Link>
           </div>
         </div>
       </div>

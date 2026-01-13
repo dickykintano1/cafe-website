@@ -4,6 +4,10 @@ import HomePage   from "./pages/home";
 import AboutPage  from "./pages/about";
 import ReservePage from "./pages/reservation";
 import CoffeePage from "./pages/coffee";
+import PastryPage from "./pages/pastry";
+import TeaPage from "./pages/tea";
+import PastaPage from "./pages/pasta";
+import AccessoriesPage from "./pages/accessories";
 
 const router = createBrowserRouter([
   {
@@ -14,6 +18,10 @@ const router = createBrowserRouter([
       { path: "about", element: <AboutPage /> },
       { path: "reservation", element: <ReservePage /> },
       { path: "coffee", element: <CoffeePage /> },
+      { path: "pastry", element: <PastryPage /> },
+      { path: "tea", element: <TeaPage/>},
+      { path: "pasta", element: <PastaPage/>},
+      { path: "accessories", element: <AccessoriesPage/>},
     ]
   }
 ]);

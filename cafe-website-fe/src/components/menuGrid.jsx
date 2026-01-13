@@ -72,7 +72,7 @@ const MenuGrid = () => {
             <Link to="/pasta" className={`${textStyle} text-orange-700`}>PASTA</Link>
           </motion.div>
           <motion.div variants={itemVariants}>
-            <Link to="/merch" className={`${textStyle} text-black`}>ACCS</Link>
+            <Link to="/accessories" className={`${textStyle} text-black`}>ACCS</Link>
           </motion.div>
         </div>
       </motion.div>

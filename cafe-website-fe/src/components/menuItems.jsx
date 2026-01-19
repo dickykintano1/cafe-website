@@ -13,8 +13,8 @@ export default function MenuItems({menuItems}){
                 <div className="mt-20 text-base">
                   <ImagePhotoStyle imgUrl={item.imgUrl} animation={item.animation}/>
                 </div>
-                <div className="mt-20 text-3xl">{item.title}</div>
-                <div className="mt-5 text-base">{item.description}</div>
+                <ItemTitle>{item.title}</ItemTitle>
+                <ItemDescription>{item.description}</ItemDescription>
                 {!isLast && <div className="mt-15 border-t border-1" />}
               </>
             )
@@ -24,8 +24,8 @@ export default function MenuItems({menuItems}){
                 <div className="mt-20 text-base -rotate-10">
                   <ImagePhotoStyle imgUrl={item.imgUrl} animation={item.animation}/>
                 </div>
-                <div className="mt-20 text-3xl">{item.title}</div>
-                <div className="mt-5 text-base">{item.description}</div>
+                <ItemTitle>{item.title}</ItemTitle>
+                <ItemDescription>{item.description}</ItemDescription>
                 {!isLast && <div className="mt-15 border-t border-1" />}
               </>
             )
@@ -35,8 +35,8 @@ export default function MenuItems({menuItems}){
                 <div className="mt-20 text-base">
                   <ImagePhotoStyle imgUrl={item.imgUrl} animation={item.animation} variant={item.variant}/>
                 </div>
-                <div className="mt-20 text-3xl">{item.title}</div>
-                <div className="mt-5 text-base">{item.description}</div>
+                <ItemTitle>{item.title}</ItemTitle>
+                <ItemDescription>{item.description}</ItemDescription>
                 {!isLast && <div className="mt-15 border-t border-1" />}
               </>
             )
@@ -44,4 +44,12 @@ export default function MenuItems({menuItems}){
       })}
     </>
   )
+}
+
+function ItemTitle({children}){
+  return <div className="mt-20 text-3xl md:text-4xl lg:text-5xl">{children}</div>
+}
+
+function ItemDescription({children}){
+ return <div className="mt-5 text-base md:text-lg lg:text-xl">{children}</div>
 }

@@ -26,20 +26,37 @@ export default function RevealText({ phrases = [], containerClass, textClass }) 
   };
 
   return (
-    <motion.div
-      className={containerClass}
-      variants={containerVariants}
-      initial="hidden"
-      whileInView="visible"
-      viewport={{ once: true, amount: 0.3 }} // Triggers when 30% of container is visible
-    >
-      {phrases.map((phrase, index) => (
-        <div key={index} className="overflow-hidden">
+    <>
+      <motion.div
+        className={`${containerClass} block md:hidden`}
+        variants={containerVariants}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.3 }}
+      >
+        {phrases.map((phrase, index) => (
+          <div key={index} className="overflow-hidden">
+            <motion.p className={`leading-tight ${textClass}`} variants={itemVariants}>
+              {phrase}
+            </motion.p>
+          </div>
+        ))}
+      </motion.div>
+
+      <motion.div
+        className={`${containerClass} hidden md:block`}
+        variants={containerVariants}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.3 }}
+      >
+        <div className="overflow-hidden hidden md:block">
           <motion.p className={`leading-tight ${textClass}`} variants={itemVariants}>
-            {phrase}
+            {phrases}
           </motion.p>
         </div>
-      ))}
-    </motion.div>
+      </motion.div>
+    </>
+    
   );
 }

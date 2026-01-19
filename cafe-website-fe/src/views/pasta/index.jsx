@@ -3,6 +3,7 @@ import { useRef, useState, useEffect } from "react";
 
 import ScrollIndicator from "../../components/scrollIndicator";
 import MenuItems from "../../components/menuItems";
+import BottomNavigation from "../../components/bottomNavigator";
 
 export default function PastaView(){
   const sectionRef = useRef(null);
@@ -53,7 +54,7 @@ export default function PastaView(){
     <section className="bg-[#FFF8E1] w-[100vw] max-w-[100vw] px-5">
       <div ref={sectionRef} className="relative">
         <ScrollIndicator targetRef={sectionRef}/>
-        <div className="-mt-[100svh] text-black pr-20 pb-30">
+        <div className="-mt-[100svh] text-black pr-20">
           <div className="pl-5 mt-30 text-5xl font-bold font-DMSerif">Pasta</div>
           <div className="mt-15 border-t border-1 -mr-10"></div>
           <div className="mt-15 text-4xl font-bold font-DMSerif">Spaghetti</div>
@@ -64,6 +65,7 @@ export default function PastaView(){
           <div className="mt-30 text-sm italic text-center -mr-20">Quality pasta meets rich spices.</div>
         </div>
       </div>
+      <BottomNavigation leftButton={"tea"} rightButton={"accessories"}/>
     </section>
   )
 }

@@ -5,8 +5,8 @@ export default function ImagePhotoStyle({imgUrl, animation, variant, className})
 
   const sizeClass = 
     (variant === "square")
-      ? " w-[218px] h-[218px]"
-      : " w-[288px] h-[218px]"
+      ? " w-[218px] md:w-[325px] h-[218px] md:h-[325px]"
+      : " w-[288px] md:w-[432px] h-[218px] md:h-[325px]"
 
   return(
     <div ref={photo} 

@@ -54,18 +54,30 @@ export default function Navbar() {
         {/* Sidebar */}
         <div
           className={`
-            fixed left-0 top-0 h-screen max-w-[50svw] bg-[#795548] shadow-xl z-98
+            fixed left-0 top-0 h-screen w-[50svw] bg-[#795548] shadow-xl z-98
             transform transition-transform duration-300
             ${sideBarOpen ? "translate-x-0" : "-translate-x-full"}
           `}
         >
-          <div className="pl-4 flex flex-col justify-center items-center">
-            <p className="pt-2 ml-24 mb-4 w-full text-4xl font-bold font-DMSerif">Ardell's</p>
+          <div className="px-4 pb-4 flex flex-col w-full h-full justify-between">
+            <div className="w-full flex flex-col flex-wrap">
+              <p className="pt-2 mb-4 self-end text-4xl font-bold font-DMSerif">Ardell's</p>
             
-            <Link to="/" className="mt-4 text-2xl self-start">Home</Link>
-            <Link to="/about" className="mt-4 text-2xl self-start">About</Link>
-            <Link to="/accessories" className="mt-4 text-2xl self-start">Accessories</Link>
-            <Link to="/reservation" className="mt-4 text-2xl self-start">Reserve</Link>
+              <Link to="/" className="mt-4 text-2xl self-start">Home</Link>
+              <Link to="/about" className="mt-4 text-2xl self-start">About</Link>
+              <Link to="/accessories" className="mt-4 text-2xl self-start">Accessories</Link>
+              <Link to="/reservation" className="mt-4 text-2xl self-start">Reserve</Link>
+
+            </div>
+
+            <div className="flex gap-4">
+              <a href="https://instagram.com" aria-label="Instagram">
+                <img src="/img/Instagram_Glyph_White.png" className='w-8 h-8'></img>
+              </a>
+              <a href="https://facebook.com" aria-label="Facebook">
+                <img src="/img/Facebook_Logo_Secondary.png" className='w-8 h-8'></img>
+              </a>
+            </div>
           </div>
         </div>
       </div>

@@ -4,6 +4,8 @@ import { useRef, useState, useEffect } from "react";
 import ScrollIndicator from "../../components/scrollIndicator";
 import MenuItems from "../../components/menuItems";
 import BottomNavigation from "../../components/bottomNavigator";
+import PageTitle from "../../components/pageTitle";
+import Paragraph from "../../components/paragraph";
 
 export default function CoffeeView() {
   const menuItems = [
@@ -34,26 +36,23 @@ export default function CoffeeView() {
   const sectionRef = useRef(null);
 
   return (
-    <section className="bg-[#FFF8E1] w-[100vw] max-w-[100vw] px-5">
-      <div ref={sectionRef} className="relative">
+    <section className="bg-[#FFF8E1] w-[100vw] max-w-[100vw] px-5 text-black">
+      <div ref={sectionRef} className="relative ">
         <ScrollIndicator targetRef={sectionRef}/>
-        <div className="-mt-[100svh] text-black pr-20">
-          <div className="pl-5 mt-30 text-5xl font-bold font-DMSerif">Coffee</div>
-          <div className="mt-15 text-3xl">Beans Selection</div>
-          <div className="mt-5 text-base">
+        <div className="-mt-[100svh] pr-20 md:pl-50 md:pr-50 lg:mr-[50%]">
+          <PageTitle>Coffee</PageTitle>
+          <div className="mt-15 text-3xl md:text-4xl lg:text-5xl">Beans Selection</div>
+          <Paragraph>
             <p>Colombia Washed — soft, balanced, sweet</p>
             <p>Brazil Natural — warm, nutty, comforting</p>
             <p>Ethiopia Natural — bright, expressive, fruity</p>
-          </div>
-          <div className="mt-15 text-sm italic">We stand behind these beans, no matter how you drink them.</div>
-          <div className="mt-10 border-t border-1 -mr-10"></div>
+          </Paragraph>
+          <div className="mt-15 text-sm md:text-sm lg:text-base italic">We stand behind these beans, no matter how you drink them.</div>
+          <div className="mt-10 border-t border-1"></div>
           <MenuItems menuItems={menuItems}/>
-          <div className="mt-15 border-t border-1 -mr-20"></div>
-          <div className="mt-30 text-sm italic text-center -mr-20">Good beans, careful brewing, no shortcuts.</div>
-          <div className="mt-30 border-t border-1 -mr-20"></div>
         </div>
       </div>
-      <BottomNavigation rightButton={"pastry"}/>
+      <BottomNavigation rightButton={"pastry"}>Good beans, careful brewing, no shortcuts.</BottomNavigation>
     </section>
   );
 }

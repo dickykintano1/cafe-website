@@ -4,6 +4,7 @@ import { useRef, useState, useEffect } from "react";
 import ScrollIndicator from "../../components/scrollIndicator";
 import MenuItems from "../../components/menuItems";
 import SwiperCarousel from "../../components/swiper";
+import BottomNavigation from "../../components/bottomNavigator";
 
 export default function AccessoriesView(){
   const sectionRef = useRef(null);
@@ -33,7 +34,7 @@ export default function AccessoriesView(){
     <section className="bg-[#FFF8E1] w-[100vw] max-w-[100vw] px-5">
       <div ref={sectionRef} className="relative">
         <ScrollIndicator targetRef={sectionRef}/>
-        <div className="-mt-[100svh] text-black pr-15 pb-30">
+        <div className="-mt-[100svh] text-black pr-15">
           <div className="pl-5 mt-30 text-5xl font-bold font-DMSerif">Accessories</div>
           <div className="pl-5 mt-5 text-sm italic">Available exclusively in-store.</div>
           <div className='mt-15 w-full'>
@@ -53,13 +54,14 @@ export default function AccessoriesView(){
             )
           })}
           <div className="mt-15 border-t border-1 -mr-15"></div>
-          <div className="mt-15 text-base -mr-15">
+          <div className="mt-30 text-base">
             Why in-store only?
             <br/><br/>
             We want every visit at Ardell’s to be memorable in the best way, and hope that these accessories can carry them with and for you.
           </div>
         </div>
       </div>
+      <BottomNavigation leftButton={"pasta"}/>
     </section>
   )
 }

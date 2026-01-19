@@ -19,7 +19,6 @@ const Footer = () => {
               Reserve
             </a>
             <div className='h-8'></div>
-            {/* Social Icons positioned under Reserve to match your layout */}
             <div className="flex h-full justify-end items-bottom gap-4">
               <a href="https://instagram.com" aria-label="Instagram">
                 <img src="/img/Instagram_Glyph_White.png" className='w-8 h-8'></img>

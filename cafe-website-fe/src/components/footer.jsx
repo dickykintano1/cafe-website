@@ -4,9 +4,9 @@ const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="relative bg-[#4a372d] text-[#cccccc] pt-15 px-6 max-h-[50svh]">
+    <footer className="relative bg-[#4a372d] text-[#cccccc] pt-15 px-6">
       <div className="max-w-6xl mx-auto">
-        
+
         {/* Top Section: Navigation and Reserve */}
         <div className="border-t border-[#d4b996] py-6 flex justify-between items-start text-2xl">
           <ul className="space-y-2">
@@ -40,7 +40,7 @@ const Footer = () => {
                 Alley, Anytown, CA 90210
               </p>
             </div>
-            
+
 
             <div className="text-right">
               <p className="opacity-90">(555) 123-4567</p>
@@ -52,7 +52,7 @@ const Footer = () => {
         </div>
 
         {/* Bottom Section: Copyright */}
-        <div className="border-t border-[#d4b996] h-15 flex items-center">
+        <div className="border-t border-[#d4b996] p-8 flex items-center">
           <p className="text-sm opacity-80">
             © {currentYear} Ardell's Coffee & Pastry. All Rights Reserved.
           </p>

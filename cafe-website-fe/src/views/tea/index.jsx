@@ -6,7 +6,7 @@ import ImagePhotoStyle from "../../components/imgPhotoStyle";
 import BottomNavigation from "../../components/bottomNavigator";
 import PageTitle from "../../components/pageTitle";
 
-export default function TeaView(){
+export default function TeaView() {
   const sectionRef = useRef(null);
 
   const choices = [
@@ -32,18 +32,18 @@ export default function TeaView(){
     },
   ]
 
-  return(
+  return (
     <section className="bg-[#FFF8E1] w-[100vw] max-w-[100vw] px-5 text-black">
       <div ref={sectionRef} className="relative">
         {/* <ScrollIndicator targetRef={sectionRef}/> */}
-        <div className="pr-20 lg:pl-50 lg:pr-50">
+        <div className="md:mx-[10%] lg:mr-[30%]">
           <PageTitle>Tea</PageTitle>
           <div className="mt-5 text-sm md:text-base lg:text-lg italic italic">Loose-leaf, brewed to order.</div>
           <div className="mt-15 border-t border-1"></div>
 
-          <div className="lg:flex lg:flex-row lg:w-full lg:gap-x-50 lg:mx-auto lg:justify-center">
+          <div className="lg:grid lg:grid-cols-2">
             <div className="my-15">
-              <ImagePhotoStyle imgUrl={"/img/tea.png"} animation={"fadeInRightDrop"}/>
+              <ImagePhotoStyle imgUrl={"/img/tea.png"} animation={"fadeInRightDrop"} />
             </div>
             <div className="lg:pt-10">
               {choices.map(item => {
@@ -55,9 +55,9 @@ export default function TeaView(){
                 )
               })}
             </div>
-            
+
           </div>
-          
+
         </div>
       </div>
       <BottomNavigation leftButton={"pastry"} rightButton={"pasta"}>Attentive brewing, thoughtful simplicity.</BottomNavigation>

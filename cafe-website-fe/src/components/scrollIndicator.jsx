@@ -4,8 +4,8 @@
 import { motion, useScroll, useSpring, useTransform } from "framer-motion";
 import { useRef, useState, useEffect } from "react";
 
-export default function ScrollIndicator({targetRef}){
-  const trackRef=useRef(null);
+export default function ScrollIndicator({ targetRef }) {
+  const trackRef = useRef(null);
   const [trackPx, setTrackPx] = useState(0);
 
   useEffect(() => {
@@ -21,7 +21,7 @@ export default function ScrollIndicator({targetRef}){
     target: targetRef,
     offset: ["start start", "end end"],
   });
-  
+
   const scaleY = useSpring(scrollYProgress, {
     stiffness: 100,
     damping: 30,
@@ -32,14 +32,14 @@ export default function ScrollIndicator({targetRef}){
   const yProgress = useTransform(scaleY, [0, 1], [0, trackPx]);
 
   return (
-    <div className="sticky top-0 flex w-full h-[100svh]">
+    <div className="sticky top-0 flex w-full h-[100svh] pr-20">
       {/* Track */}
       <div ref={trackRef} className={`absolute top-20 right-0 mr-[2px] w-1 h-[50svh] bg-black/50 z-40`} />
 
       {/* Ball */}
       <motion.div
         className="absolute top-20 right-0 h-8 w-2 z-50 bg-[#FFF8E1] flex items-center"
-        style={{y: (yProgress)}}
+        style={{ y: (yProgress) }}
       ><div className="w-2 h-2 bg-black rotate-45" /></motion.div>
     </div>
   );

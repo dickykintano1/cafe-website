@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import {Link} from "react-router-dom"
+import { Link } from "react-router-dom"
 import MenuButton from "./menuButton";
 
 export default function Navbar() {
@@ -38,7 +38,7 @@ export default function Navbar() {
       >
       </div>
       <div className="fixed top-0 ml-4 mt-4 z-99">
-        <MenuButton sideBarOpen={sideBarOpen} onClick={() => setSideBarOpen((o) => !o)}/>
+        <MenuButton sideBarOpen={sideBarOpen} onClick={() => setSideBarOpen((o) => !o)} />
       </div>
 
       <div>
@@ -61,8 +61,8 @@ export default function Navbar() {
         >
           <div className="px-4 pb-4 flex flex-col w-full h-full justify-between">
             <div className="w-full flex flex-col flex-wrap">
-              <p className="pt-2 mb-4 self-end text-4xl font-bold font-DMSerif">Ardell's</p>
-            
+              <p className="pt-2 mb-4 self-end md:self-center text-4xl font-bold font-DMSerif">Ardell's</p>
+
               <Link to="/" className="mt-4 text-2xl self-start">Home</Link>
               <Link to="/about" className="mt-4 text-2xl self-start">About</Link>
               <Link to="/accessories" className="mt-4 text-2xl self-start">Accessories</Link>

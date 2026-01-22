@@ -12,7 +12,7 @@ export default function BottomNavigation({ leftButton, rightButton, children }) 
   const rightButtonLink = buttonLinkMap[rightButton] ?? "";
 
   return (
-    <div className="md:mx-[10%]">
+    <div className="md:mx-[25%]">
       {/* <div className="mt-15 border-t border-1"></div> */}
       <div className="my-30 text-sm md:text-sm lg:text-base italic text-center">{children}</div>
 

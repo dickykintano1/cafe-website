@@ -1,4 +1,4 @@
-import {motion} from 'framer-motion';
+import { motion } from 'framer-motion';
 import useFadeInOnView from "../../hooks/useFadeInOnView";
 import Specials from "../../components/specials";
 import SwiperCarousel from "../../components/swiper";
@@ -16,13 +16,13 @@ export default function HomeView() {
           />
         </div>
         <div className='mx-5 md:mx-[25%]'>
-          <Title/>
+          <Title />
 
           <SectionTitle title={['A feeling, not', ' just a place']}
             text={"Every corner of Ardell's is designed to be a moment of quiet comfort and simple elegance."}
           />
 
-          <Gallery/>
+          <Gallery />
 
           <SectionTitle title={['Savour the', ' full experience']}
             text={"Get the most from the best ingredients handled with perfected crafts. We see our barista as craftsmen whose creations could be savored by anyone."}
@@ -31,62 +31,62 @@ export default function HomeView() {
           <SwiperCarousel effect="fade" className='h-[25svh] md:h-[50svh]'
             images={["/img/barista2.png", "/img/coffee5.png", "/img/cake.png"]}
           />
-          
 
-          <MenuGrid/>
+
+          <MenuGrid />
         </div>
 
-      <VisitUs/>
-    </main>
-    <ReservationWindow/>
+        <VisitUs />
+      </main>
+      <ReservationWindow />
     </>
-    
+
   )
 }
 
-function Title(){
-  return(
+function Title() {
+  return (
     <div className="
       flex flex-1 flex-col overflow-hidden items-center w-full !text-black 
       bg-[#FFF8E1]"
     >
       <div className="flex flex-row mt-20 justify-center items-center">
         <img src='./img/logo.png' className="w-[72px] h-[72px]" />
-        <span className="font-DMSerif text-[4rem] md:text-[6rem]">Ardell's</span>
+        <span className="font-DMSerif text-[4rem] md:text-[5rem]">Ardell's</span>
       </div>
       <span className="font-Tinos text-2xl md:text-3xl">Tradition, Brewed. Innovation, Poured.</span>
     </div>
   )
 }
 
-function SectionTitle({title, text}){
-  return(
+function SectionTitle({ title, text }) {
+  return (
     <div className="w-full h-[40svh] text-center my-20 flex flex-col justify-center items-center">
-      <RevealText containerClass={'mb-10'} textClass={'font-DMSerif text-5xl md:text-7xl text-amber-900'} phrases={title}/>
-      <p className="font-Tinos text-xl md:text-2xl max-w-[100%] md:max-w-[50%] mx-auto text-gray-700">
+      <RevealText containerClass={'mb-10'} textClass={'font-DMSerif text-5xl md:text-6xl lg:text-7xl text-amber-900'} phrases={title} />
+      <p className="font-Tinos text-xl md:text-2xl max-w-[100%] mx-auto text-gray-700">
         {text}
       </p>
     </div>
   )
 }
 
-function Gallery(){
+function Gallery() {
   const interior1 = useFadeInOnView({ animation: 'fadeInRight' });
   const interior2 = useFadeInOnView({ animation: 'fadeInLeft' });
   const interior3 = useFadeInOnView({ animation: 'fadeInRight' });
 
-  return(
+  return (
     <div id="page2" className="flex flex-wrap py-5">
       <div className="basis-1/2 pr-5">
         <div ref={interior1} className="
-          w-full h-50 md:h-100
+          w-full h-50 md:h-75 lg:h-100
           bg-[url(/img/interior1.png)] bg-cover bg-center
         "
         />
       </div>
       <div className="basis-1/2 pl-5">
         <div ref={interior2} className="
-          w-full h-80 md:h-160 mt-40
+          w-full h-80 md:h-90 lg:h-160 mt-40
           bg-[url(/img/interior2.png)] bg-cover bg-center
           translate-y-5
         "
@@ -94,7 +94,7 @@ function Gallery(){
       </div>
       <div className="basis-1/2 pr-5">
         <div ref={interior3} className="
-          w-full h-70 md:h-140
+          w-full h-70 md:h-90 lg:h-140
           bg-[url(/img/interior3.png)] bg-cover bg-center
         "
         />
@@ -103,10 +103,10 @@ function Gallery(){
   )
 }
 
-function MenuGrid (){
+function MenuGrid() {
   // const textStyle = 'font-DMSerif text-5xl md:text-8xl tracking-[0.001rem] cursor-pointer hover:underline' 
   const textStyle = `
-  font-DMSerif text-5xl md:text-8xl
+  font-DMSerif text-5xl md:text-7xl lg:text-8xl
     inline-block
     relative 
 
@@ -142,9 +142,9 @@ function MenuGrid (){
     visible: {
       clipPath: "inset(0% 0% 0% 0%)",
       y: 0,
-      transition: { 
-        duration: 1, 
-        ease: [0.45, 0, 0.55, 1] 
+      transition: {
+        duration: 1,
+        ease: [0.45, 0, 0.55, 1]
       },
     },
   };
@@ -182,9 +182,9 @@ function MenuGrid (){
   );
 };
 
-function VisitUs(){
+function VisitUs() {
   return (
-    <section className="bg-[#FDF1D3] py-20 px-5 md:px-[25%] text-center text-[#5C3D2E]">
+    <section className="bg-[#FDF1D3] py-20 px-5 md:px-[10%] text-center text-[#5C3D2E]">
       {/* Title */}
       <h2 className="text-6xl md:text-7xl mb-10 italic  font-DMSerif">
         Visit us
@@ -196,7 +196,7 @@ function VisitUs(){
           {/* Replace the 'src' with your actual Google Maps Embed link */}
           <iframe
             title="Location Map"
-            src="https://www.google.com/maps/embed?pb=..." 
+            src="https://www.google.com/maps/embed?pb=..."
             className="w-full h-[300px] md:h-[450px] rounded-sm border-none"
             allowFullScreen=""
             loading="lazy"
@@ -218,7 +218,7 @@ function VisitUs(){
               <h3 className="uppercase tracking-widest text-sm mb-1 opacity-80">Monday - Friday</h3>
               <p className="font-semibold">07:00 - 20:00</p>
             </div>
-            
+
             <div>
               <h3 className="uppercase tracking-widest text-sm mb-1 opacity-80">Saturday</h3>
               <p className="font-semibold">08:00 - 20:00</p>

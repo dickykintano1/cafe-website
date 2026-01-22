@@ -5,6 +5,7 @@ import ScrollIndicator from "../../components/scrollIndicator";
 import MenuItems from "../../components/menuItems";
 import BottomNavigation from "../../components/bottomNavigator";
 import PageTitle from "../../components/pageTitle";
+import ResponsiveContainer from "../../components/responsiveContainer";
 
 export default function PastryView() {
   const sectionRef = useRef(null);
@@ -45,11 +46,11 @@ export default function PastryView() {
     <section className="bg-[#FFF8E1] w-[100vw] max-w-[100vw] px-5 text-black">
       <div ref={sectionRef} className="relative">
         <ScrollIndicator targetRef={sectionRef} />
-        <div className="-mt-[100svh] pr-20 md:ml-[10%] lg:mr-[30%]">
+        <ResponsiveContainer className="-mt-[100svh]">
           <PageTitle>Pastry</PageTitle>
           <div className="mt-15 border-t border-1"></div>
           <MenuItems menuItems={menuItems} />
-        </div>
+        </ResponsiveContainer>
       </div>
       <BottomNavigation leftButton={"coffee"} rightButton={"tea"}>Focused on technique, balance, and time.</BottomNavigation>
     </section>

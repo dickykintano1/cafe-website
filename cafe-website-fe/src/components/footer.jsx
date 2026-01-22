@@ -5,7 +5,7 @@ const Footer = () => {
 
   return (
     <footer className="relative bg-[#4a372d] text-[#cccccc] pt-15 px-6">
-      <div className="max-w-6xl mx-auto">
+      <div className="max-w-6xl md:mx-[25%]">
 
         {/* Top Section: Navigation and Reserve */}
         <div className="border-t border-[#d4b996] py-6 flex justify-between items-start text-2xl">
@@ -52,7 +52,7 @@ const Footer = () => {
         </div>
 
         {/* Bottom Section: Copyright */}
-        <div className="border-t border-[#d4b996] p-8 flex items-center">
+        <div className="border-t border-[#d4b996] py-8 flex items-center">
           <p className="text-sm opacity-80">
             © {currentYear} Ardell's Coffee & Pastry. All Rights Reserved.
           </p>

@@ -5,6 +5,7 @@ import ScrollIndicator from "../../components/scrollIndicator";
 import ImagePhotoStyle from "../../components/imgPhotoStyle";
 import BottomNavigation from "../../components/bottomNavigator";
 import PageTitle from "../../components/pageTitle";
+import ResponsiveContainer from "../../components/responsiveContainer";
 
 export default function TeaView() {
   const sectionRef = useRef(null);
@@ -36,7 +37,7 @@ export default function TeaView() {
     <section className="bg-[#FFF8E1] w-[100vw] max-w-[100vw] px-5 text-black">
       <div ref={sectionRef} className="relative">
         {/* <ScrollIndicator targetRef={sectionRef}/> */}
-        <div className="md:mx-[10%] lg:mr-[30%]">
+        <ResponsiveContainer>
           <PageTitle>Tea</PageTitle>
           <div className="mt-5 text-sm md:text-base lg:text-lg italic italic">Loose-leaf, brewed to order.</div>
           <div className="mt-15 border-t border-1"></div>
@@ -58,7 +59,7 @@ export default function TeaView() {
 
           </div>
 
-        </div>
+        </ResponsiveContainer>
       </div>
       <BottomNavigation leftButton={"pastry"} rightButton={"pasta"}>Attentive brewing, thoughtful simplicity.</BottomNavigation>
     </section>

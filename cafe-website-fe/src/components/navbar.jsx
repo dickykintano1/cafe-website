@@ -54,7 +54,7 @@ export default function Navbar() {
         {/* Sidebar */}
         <div
           className={`
-            fixed left-0 top-0 h-screen w-[50svw] bg-[#795548] shadow-xl z-98
+            fixed left-0 top-0 h-screen w-[50svw] md:w-[40svw] lg:w-[25svw] bg-[#795548] shadow-xl z-98
             transform transition-transform duration-300
             ${sideBarOpen ? "translate-x-0" : "-translate-x-full"}
           `}

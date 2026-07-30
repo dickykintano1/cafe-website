@@ -8,7 +8,7 @@ import BottomNavigation from "../../components/bottomNavigator";
 import PageTitle from "../../components/pageTitle";
 import Paragraph from "../../components/paragraph";
 
-export default function CoffeeView() {
+export default function CoffeeMenu() {
   const menuItems = [
     {
       id: "blackCoffee",

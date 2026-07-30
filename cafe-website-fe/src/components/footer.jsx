@@ -1,23 +1,24 @@
 import React from 'react';
+import { Link } from 'react-router';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="relative bg-[#4a372d] text-[#cccccc] pt-15 px-6">
+    <footer className="relative bg-[#4a372d] text-[#cccccc] pt-15 px-6 w-[100svw]">
       <div className="max-w-6xl md:mx-[25%]">
 
         {/* Top Section: Navigation and Reserve */}
         <div className="border-t border-[#d4b996] py-6 flex justify-between items-start text-2xl">
           <ul className="space-y-2">
-            <li><a href="/" className="hover:opacity-70 transition-opacity">Home</a></li>
-            <li><a href="/about" className="hover:opacity-70 transition-opacity">About</a></li>
-            <li><a href="/accessories" className="hover:opacity-70 transition-opacity">Accessories</a></li>
+            <li><Link to="/" className="hover:opacity-70 transition-opacity">Home</Link></li>
+            <li><Link to="/about" className="hover:opacity-70 transition-opacity">About</Link></li>
+            <li><Link to="/accessories" className="hover:opacity-70 transition-opacity">Accessories</Link></li>
           </ul>
           <div className="text-right flex flex-col gap-2">
-            <a href="/reservation" className="md:text-2xl hover:opacity-70 transition-opacity">
+            <Link to="/reservation" className="md:text-2xl hover:opacity-70 transition-opacity">
               Reserve
-            </a>
+            </Link>
             <div className='h-8'></div>
             <div className="flex h-full justify-end items-bottom gap-4">
               <a href="https://instagram.com" aria-label="Instagram">

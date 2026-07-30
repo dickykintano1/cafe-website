@@ -14,8 +14,8 @@ export default function AboutView() {
     <>
       <section className="bg-[#FFF8E1] w-[100vw] max-w-[100vw] px-5 pb-30 text-black">
         <div ref={sectionRef} className="relative">
-          <ScrollIndicator targetRef={sectionRef} />
-          <ResponsiveContainer className={"-mt-[100svh] pr-[30%]"}>
+          {/* <ScrollIndicator targetRef={sectionRef} /> */}
+          <ResponsiveContainer className={"lg:max-w-[25svw]"}>
             <PageTitle>About</PageTitle>
             <Paragraph>It began with a singular obsession: the perfect cup of black coffee. To me, coffee was never just a morning ritual; it was a pursuit of clarity, acidity, and origin. For years, the daily grind was a solitary act of precision—dialing in roasts and perfecting extraction methods to satisfy a personal palate that demanded nothing less than excellence. In the quiet of those early mornings, the foundation of our craft was laid in the steam and the scent of freshly ground beans.</Paragraph>
             <div className="mt-15"><img src="/img/coffeeTexture.png" className="h-45 md:h-100 w-full object-cover"></img></div>

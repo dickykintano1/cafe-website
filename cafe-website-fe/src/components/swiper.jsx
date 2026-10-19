@@ -5,8 +5,8 @@ import 'swiper/css/autoplay';
 import 'swiper/css/effect-fade';
 
 
-export default function SwiperCarousel({images = [], effect, className, gradient}) {
-  const gradientStyle = `linear-gradient(360deg, rgba(255,248,225,1) 5%, rgba(0,0,0,0) 30%)`;
+export default function SwiperCarousel({ images = [], effect, className, gradient }) {
+  const gradientStyle = `linear-gradient(360deg, rgba(244,237,226,1) 5%, rgba(0,0,0,0) 30%)`;
 
   return (
     <Swiper
@@ -28,13 +28,13 @@ export default function SwiperCarousel({images = [], effect, className, gradient
       style={{}}
     >
       {images.map((src, index) => (
-        <SwiperSlide 
-          key={index} 
+        <SwiperSlide
+          key={index}
           className="bg-cover bg-center bg-no-repeat"
-          style={{ 
-            backgroundImage: gradient 
-              ? `${gradientStyle}, url("${src}")` 
-              : `url("${src}")` 
+          style={{
+            backgroundImage: gradient
+              ? `${gradientStyle}, url("${src}")`
+              : `url("${src}")`
           }}
         />
       ))}

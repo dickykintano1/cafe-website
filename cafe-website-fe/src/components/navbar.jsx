@@ -4,6 +4,7 @@ import MenuButton from "./menuButton";
 
 export default function Navbar() {
   const [sideBarOpen, setSideBarOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
   const navRef = useRef(null);
 
   useEffect(() => {
@@ -14,8 +15,10 @@ export default function Navbar() {
 
       if (curr > lastScroll && curr > 50) {
         navRef.current.classList.add("-translate-y-100");
+        setScrolled(true);
       } else {
         navRef.current.classList.remove("-translate-y-100");
+        setScrolled(false);
       }
 
       lastScroll = curr;
@@ -32,13 +35,13 @@ export default function Navbar() {
     <>
       <div ref={navRef}
         className="
-        fixed top-0 z-97 w-[100svw] h-15 bg-[#FFE0B2]
+        fixed top-0 z-97 w-[100svw] h-15 bg-[#231714]
         transition-all duration-300
         "
       >
       </div>
       <div className="fixed top-0 ml-4 mt-4 z-99">
-        <MenuButton sideBarOpen={sideBarOpen} onClick={() => setSideBarOpen((o) => !o)} />
+        <MenuButton sideBarOpen={sideBarOpen} scrolled={scrolled} onClick={() => setSideBarOpen((o) => !o)} />
       </div>
 
       <div>

@@ -9,7 +9,7 @@ const Footer = () => {
       <div className="max-w-6xl md:mx-[25%]">
 
         {/* Top Section: Navigation and Reserve */}
-        <div className="border-t border-[#d4b996] py-6 flex justify-between items-start text-2xl">
+        <div className="border-t border-[#C89B53] py-6 flex justify-between items-start text-2xl">
           <ul className="space-y-2">
             <li><Link to="/" className="hover:opacity-70 transition-opacity">Home</Link></li>
             <li><Link to="/about" className="hover:opacity-70 transition-opacity">About</Link></li>
@@ -32,7 +32,7 @@ const Footer = () => {
         </div>
 
         {/* Middle Section: Visit Us and Contact */}
-        <div className="border-t border-[#d4b996] py-8 flex flex-col justify-between items-start gap-6 text-base">
+        <div className="border-t border-[#C89B53] py-8 flex flex-col justify-between items-start gap-6 text-base">
           <p className="text-3xl font-bold">VISIT US</p>
           <div className='w-full flex justify-between items-start'>
             <div>
@@ -53,7 +53,7 @@ const Footer = () => {
         </div>
 
         {/* Bottom Section: Copyright */}
-        <div className="border-t border-[#d4b996] py-8 flex items-center">
+        <div className="border-t border-[#C89B53] py-8 flex items-center">
           <p className="text-sm opacity-80">
             © {currentYear} Ardell's Coffee & Pastry. All Rights Reserved.
           </p>

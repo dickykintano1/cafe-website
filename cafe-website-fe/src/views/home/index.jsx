@@ -3,6 +3,7 @@ import useFadeInOnView from "../../hooks/useFadeInOnView";
 import Specials from "../../components/specials";
 import SwiperCarousel from "../../components/swiper";
 import RevealText from '../../components/revealText';
+import LightingPanel from '../../components/lightingPanel';
 import { Link } from 'react-router';
 import ReservationWindow from '../../components/reservationWindow';
 import ReservationWindow2 from '../../components/reservationWindow2';
@@ -13,9 +14,9 @@ import Gallery from "./Gallery";
 export default function HomeView() {
   return (
     <>
-      <main className="bg-white w-[100vw]">
+      <main className="bg-[#FFF8E1] w-[100vw]">
         <div className="relative">
-          <div className="bg-[url('/img/soyoung-han-f4q4QejWENw-unsplash.jpg')] bg-cover bg-center scale-x-[-1] h-[100svh] z-9">
+          <div data-menu-light className="bg-[url('/img/soyoung-han-f4q4QejWENw-unsplash.jpg')] bg-cover bg-center scale-x-[-1] h-[100svh] z-9">
             {/* <SwiperCarousel effect="fade" className='h-[100svh] mt-15' gradient
               images={["/img/barista.png", "/img/interior2.png", "/img/interior3.png"]}
             /> */}
@@ -27,14 +28,7 @@ export default function HomeView() {
             <Title />
           </div>
         </div>
-        <div className='relative flex flex-col gap-20 mx-5 md:max-w-5xl md:mx-auto'>
-          <div
-            className="
-              absolute top-0 left-1/2 -translate-x-1/2 
-              w-screen h-[50svh] py-20 
-              
-            "
-          />
+        <div className='relative isolate flex flex-col mx-5 md:max-w-5xl md:mx-auto'>
           <SectionTitle title={['A feeling, not', ' just a place']}
             text={"Every corner of Ardell's is designed to be a moment of quiet comfort and simple elegance."}
           />
@@ -82,13 +76,12 @@ function Title() {
 
 function SectionTitle({ title, text }) {
   return (
-    <div className="w-full h-[50svh] text-center flex flex-col justify-center items-center">
+    <div className="w-full h-full mt-30 mb-10 text-start flex flex-col justify-center items-start">
       {/* <div className="h-1 w-full bg-[#C89B53]">
       </div> */}
       <RevealText containerClass={'mb-10'} textClass={'font-DMSerif text-5xl md:text-6xl lg:text-7xl text-amber-900'} phrases={title} />
-      <p className="font-Tinos text-xl md:text-2xl max-w-[100%] mx-auto text-gray-700 z-99">
-        {text}
-      </p>
+      <RevealText containerClass={'max-w-[100%] z-99 mt-10'} textClass={'font-Tinos text-xl md:text-2xl text-gray-700'} phrases={text.split('\n')} />
+      <div className='h-[2px] bg-amber-900 w-[75%] self-end mt-10' />
     </div>
   )
 }

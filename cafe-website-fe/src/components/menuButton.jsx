@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 
-export default function MenuButton({ sideBarOpen, scrolled, onClick }) {
+export default function MenuButton({ sideBarOpen, dark, onClick }) {
   // Define common styles for the three lines
-  const lineStyle = `${"h-1 w-8 my-0.5 rounded-full transition-all duration-300 ease-in-out"} ${scrolled ? "bg-black" : "bg-white"}`;
+  const lineStyle = `${"h-1 w-8 my-0.5 rounded-full transition-all duration-300 ease-in-out"} ${dark ? sideBarOpen ? "bg-white" : "bg-black" : "bg-white"}`;
 
   const handleClick = () => {
     if (onClick) {

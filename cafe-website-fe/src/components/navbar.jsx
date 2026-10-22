@@ -1,11 +1,13 @@
 import { useEffect, useRef, useState } from "react";
-import { Link } from "react-router-dom"
+import { Link, useLocation } from "react-router-dom"
 import MenuButton from "./menuButton";
 
 export default function Navbar() {
   const [sideBarOpen, setSideBarOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
+  const [overLight, setOverLight] = useState(false);
   const navRef = useRef(null);
+  const menuButtonRef = useRef(null);
+  const location = useLocation();
 
   useEffect(() => {
     let lastScroll = 0;
@@ -15,10 +17,8 @@ export default function Navbar() {
 
       if (curr > lastScroll && curr > 50) {
         navRef.current.classList.add("-translate-y-100");
-        setScrolled(true);
       } else {
         navRef.current.classList.remove("-translate-y-100");
-        setScrolled(false);
       }
 
       lastScroll = curr;
@@ -31,17 +31,53 @@ export default function Navbar() {
     };
   }, []);
 
+  // MenuButton is light (white) while it is over an element marked with `data-menu-light`, dark otherwise
+  useEffect(() => {
+    const checkOverlap = () => {
+      if (!menuButtonRef.current) return;
+      const btn = menuButtonRef.current.getBoundingClientRect();
+      const centerY = btn.top + btn.height / 2;
+
+      const isOver = Array.from(document.querySelectorAll("[data-menu-light]")).some((el) => {
+        const rect = el.getBoundingClientRect();
+        return centerY >= rect.top && centerY <= rect.bottom;
+      });
+
+      setOverLight(isOver);
+    };
+
+    checkOverlap();
+    window.addEventListener("scroll", checkOverlap, { passive: true });
+    window.addEventListener("resize", checkOverlap);
+
+    return () => {
+      window.removeEventListener("scroll", checkOverlap);
+      window.removeEventListener("resize", checkOverlap);
+    };
+  }, [location.pathname]);
+
   return (
     <>
       <div ref={navRef}
         className="
-        fixed top-0 z-97 w-[100svw] h-15 bg-[#231714]
+        fixed top-0 z-97 w-[100svw] h-15 bg-transparent
         transition-all duration-300
         "
       >
       </div>
-      <div className="fixed top-0 ml-4 mt-4 z-99">
-        <MenuButton sideBarOpen={sideBarOpen} scrolled={scrolled} onClick={() => setSideBarOpen((o) => !o)} />
+      <div ref={menuButtonRef} className="fixed top-0 px-4 mt-4 z-99 w-full flex flex-row gap-4 items-center justify-between">
+        <MenuButton sideBarOpen={sideBarOpen} dark={!overLight} onClick={() => setSideBarOpen((o) => !o)} />
+        <Link to="#" 
+          className={`
+            font-Tinos
+            px-4 py-2 rounded-lg 
+            bg-transparent border
+            transition-colors duration-300
+            ${overLight ? "text-white border-white hover:bg-white/20" : "text-black border-black hover:bg-black/20"}`
+          }
+        >
+          Booking
+        </Link>
       </div>
 
       <div>

@@ -56,14 +56,16 @@ Desired impression:
 Cozy, warm, inviting.
 
 Visual preferences:
-- Colors:
+- Colors: Black, Brown, Beige
 - Typography:
-- Layout:
-- Photography / illustrations:
-- Animation:
+- Layout: Cozy, Inviting
+- Photography / illustrations: Cafe Interior, Beverages, Friendly Staff
+- Animation: On hover, fade ins
 
 Things to avoid:
-- 
+- Lagging/Stuttering Animations
+- Unclear Informations
+- Difficult Navigation
 
 References:
 - [Reference name](https://example.com)
@@ -74,8 +76,9 @@ References:
 
 | Page | Purpose | Main content | Main action |
 |---|---|---|---|
-| Home | Introduce the service | Summary, benefits, testimonials | View services |
-| Services | Explain available options | Details, pricing, FAQs | Request a quote |
+| Home | Introduce the story | Summary, space showcase, map | Menu Grid |
+| Menu | Explain available options | Details, pricing | Book space |
+| Souvenirs | Explain available options | Details, pricing | Book space |
 | Contact | Enable enquiries | Contact details, form | Submit enquiry |
 
 ## 6. Features and Scope
@@ -91,13 +94,12 @@ References:
 
 ### Out of scope
 - Online payments
-- User accounts
 
 ## 7. Main User Flow
 
 1. Visitor arrives on the home page.
-2. Opens the services page.
-3. Chooses a relevant service.
+2. Opens the menu page.
+3. Decides to book a space.
 4. Submits an enquiry.
 5. Sees confirmation and knows what happens next.
 
@@ -105,7 +107,7 @@ References:
 
 | Item | Provided by | Status |
 |---|---|---|
-| Logo | Client | Waiting |
+| Logo | Client | Received |
 | Website copy | Client | Draft |
 | Photos | Client | Received |
 | Form submission service | Developer | To decide |
@@ -115,7 +117,7 @@ References:
 - Target launch date:
 - Budget:
 - Technical requirements:
-- Hosting:
+- Hosting: vercel
 - Accessibility / browser requirements:
 - Other limitations:
 

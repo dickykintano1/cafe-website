@@ -84,23 +84,30 @@ export default function Navbar() {
         {/* Overlay */}
         <div
           className={`
-            fixed inset-0 bg-black/50 transition-opacity duration-300 z-98
+            fixed inset-0 bg-espresso/50 transition-opacity duration-300 z-98
             ${sideBarOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"}
           `}
           onClick={() => setSideBarOpen(false)}
         />
 
-        {/* Sidebar */}
+        {/* Sidebar (glass: translucent warm tint + blur/saturate of the page behind) */}
         <div
           className={`
-            fixed left-0 top-0 h-screen w-[50svw] md:w-[40svw] lg:w-[25svw] bg-[#795548] shadow-xl z-98
+            fixed left-0 top-0 h-screen w-[50svw] md:w-[40svw] lg:w-[25svw] z-98
+            text-cream
+            bg-cocoa/35 backdrop-blur-xl backdrop-saturate-150
+            border-r border-latte/25
+            shadow-[inset_1px_0_0_rgba(255,255,255,0.15),8px_0_32px_rgba(43,27,18,0.35)]
             transform transition-transform duration-300
             ${sideBarOpen ? "translate-x-0" : "-translate-x-full"}
           `}
         >
-          <div className="px-4 pb-4 flex flex-col w-full h-full justify-between">
+          {/* Light sheen across the top, like light catching the glass */}
+          <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-white/15 via-white/5 to-transparent" />
+
+          <div className="relative px-4 pb-4 flex flex-col w-full h-full justify-between">
             <div className="w-full flex flex-col flex-wrap">
-              <p className="pt-2 mb-4 self-end md:self-center text-4xl font-bold font-DMSerif">Ardell's</p>
+              <p className="pt-4 mb-4 self-end md:self-center text-4xl font-bold font-DMSerif">Ardell's</p>
 
               <Link to="/" className="mt-4 text-2xl self-start">Home</Link>
               <Link to="/about" className="mt-4 text-2xl self-start">About</Link>

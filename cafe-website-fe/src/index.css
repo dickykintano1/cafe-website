@@ -71,4 +71,39 @@ button:focus-visible {
 
   --font-medievalSharp: "MedievalSharp", sans-serif;
   --font-DMSerif: "DM Serif Text", sans-serif;
+
+  /* Ardell's palette — warm minimal (pulled from the hero & interior photos) */
+  --color-espresso: #2B1B12; /* replaces pure black */
+  --color-roast: #4A372D;    /* footer / deep text */
+  --color-cocoa: #5C3D2E;    /* headings */
+  --color-caramel: #9C5B2E;  /* accent text (replaces orange-700) */
+  --color-brass: #C89B53;    /* hairlines, details */
+  --color-latte: #E8D5B5;    /* soft text on dark */
+  --color-oat: #FDF1D3;      /* section bg */
+  --color-cream: #FFF8E1;    /* page bg */
+
+  --animate-slow-zoom: slow-zoom 20s ease-out forwards;
+
+  @keyframes slow-zoom {
+    from { transform: scale(1.08); }
+    to   { transform: scale(1); }
+  }
+}
+
+/* Film-grain overlay: add `grain` to any `relative` element.
+   Static SVG noise (no animation) so it stays cheap on phones. */
+@utility grain {
+  &::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0.12;
+    mix-blend-mode: overlay;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-slow-zoom { animation: none; }
 }

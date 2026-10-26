@@ -69,21 +69,21 @@ export default function MenuGrid({ animated = true }) {
 			>
 				<div className="flex flex-row justify-center items-center">
 					<motion.div variants={itemVariants}>
-						<Link to="/menu/coffee" className={`${textStyle} text-black`} onClick={() => handleClick('/coffee')}>COFFEE</Link>
+						<Link to="/menu/coffee" className={`${textStyle} text-espresso`} onClick={() => handleClick('/coffee')}>COFFEE</Link>
 					</motion.div>
 					<motion.div variants={itemVariants}>
-						<Link to="/menu/pastry" className={`${textStyle} text-orange-700`} onClick={() => handleClick('/pastry')}>PASTRY</Link>
+						<Link to="/menu/pastry" className={`${textStyle} text-caramel`} onClick={() => handleClick('/pastry')}>PASTRY</Link>
 					</motion.div>
 				</div>
 				<div className="flex flex-row justify-center items-center">
 					<motion.div variants={itemVariants}>
-						<Link to="/menu/tea" className={`${textStyle} text-black`} onClick={() => handleClick('/tea')}>TEA</Link>
+						<Link to="/menu/tea" className={`${textStyle} text-espresso`} onClick={() => handleClick('/tea')}>TEA</Link>
 					</motion.div>
 					<motion.div variants={itemVariants}>
-						<Link to="/menu/pasta" className={`${textStyle} text-orange-700`} onClick={() => handleClick('/pasta')}>PASTA</Link>
+						<Link to="/menu/pasta" className={`${textStyle} text-caramel`} onClick={() => handleClick('/pasta')}>PASTA</Link>
 					</motion.div>
 					<motion.div variants={itemVariants}>
-						<Link to="/accessories" className={`${textStyle} text-black`} onClick={() => handleClick('/accessories')}>ACCS</Link>
+						<Link to="/accessories" className={`${textStyle} text-espresso`} onClick={() => handleClick('/accessories')}>ACCS</Link>
 					</motion.div>
 				</div>
 			</motion.div>

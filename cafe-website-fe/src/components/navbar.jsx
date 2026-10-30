@@ -67,13 +67,15 @@ export default function Navbar() {
       </div>
       <div ref={menuButtonRef} className="fixed top-0 px-4 mt-4 z-99 w-full flex flex-row gap-4 items-center justify-between">
         <MenuButton sideBarOpen={sideBarOpen} dark={!overLight} onClick={() => setSideBarOpen((o) => !o)} />
-        <Link to="#" 
+        <Link to="#"
           className={`
             font-Tinos
             px-4 py-2 rounded-lg 
-            bg-transparent border
+            border backdrop-blur-md backdrop-saturate-150
             transition-colors duration-300
-            ${overLight ? "text-white border-white hover:bg-white/20" : "text-black border-black hover:bg-black/20"}`
+            ${overLight
+              ? "text-white bg-white/10 border-white/40 shadow-[inset_0_1px_0_rgba(255,255,255,0.25)] hover:bg-white/20"
+              : "text-black bg-white/25 border-black/40 shadow-[inset_0_1px_0_rgba(255,255,255,0.5)] hover:bg-white/40"}`
           }
         >
           Booking
@@ -93,7 +95,7 @@ export default function Navbar() {
         {/* Sidebar (glass: translucent warm tint + blur/saturate of the page behind) */}
         <div
           className={`
-            fixed left-0 top-0 h-screen w-[50svw] md:w-[40svw] lg:w-[25svw] z-98
+            fixed left-0 top-0 h-[100dvh] w-[50svw] md:w-[40svw] lg:w-[25svw] z-98
             text-cream
             bg-cocoa/35 backdrop-blur-xl backdrop-saturate-150
             border-r border-latte/25
@@ -107,7 +109,7 @@ export default function Navbar() {
 
           <div className="relative px-4 pb-4 flex flex-col w-full h-full justify-between">
             <div className="w-full flex flex-col flex-wrap">
-              <p className="pt-4 mb-4 self-end md:self-center text-4xl font-bold font-DMSerif">Ardell's</p>
+              <p className="pt-4 mb-4 ml-10 md:ml-0 self-center text-4xl font-bold font-DMSerif">Ardell's</p>
 
               <Link to="/" className="mt-4 text-2xl self-start">Home</Link>
               <Link to="/about" className="mt-4 text-2xl self-start">About</Link>

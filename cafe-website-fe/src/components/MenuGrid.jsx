@@ -58,7 +58,7 @@ export default function MenuGrid({ animated = true }) {
 		};
 
 	return (
-		<section className="w-full bg-transparent h-[40svh] overflow-none mt-15 mb-30">
+		<section className="w-full bg-transparent h-[40svh] overflow-none mt-15 pb-30">
 			<motion.div
 				className="h-full flex flex-col justify-center items-center"
 				variants={containerVariants}

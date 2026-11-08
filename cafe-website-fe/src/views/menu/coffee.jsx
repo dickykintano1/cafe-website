@@ -44,8 +44,14 @@ export default function CoffeeMenu() {
       <div ref={sectionRef} className="relative ">
         {/* <ScrollIndicator targetRef={sectionRef} /> */}
         <div className="flex flex-col md:mx-[10%] lg:mx-[25%]">
-          <PageTitle>Coffee</PageTitle>
-          <div className='h-[2px] bg-brass/70 self-end w-[75%] mt-10' />
+          <div className='min-h-[2px] bg-brass/70 w-[75%] mt-30' />
+          <div className={`
+            my-10 pl-5 
+            text-5xl md:text-6xl lg:text-7xl text-cocoa font-bold font-DMSerif
+          `}>
+            Coffee
+          </div>
+          <div className='min-h-[2px] bg-brass/70 self-end w-[75%]' />
 
           <div className="mt-30 grid grid-cols-2 md:grid-cols-3 gap-x-5 gap-y-10 justify-center items-start">
             {menuItems.map((item, index) => {
